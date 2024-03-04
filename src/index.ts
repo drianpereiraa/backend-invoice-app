@@ -13,6 +13,7 @@ import cookieParser = require("cookie-parser")
 // cors
 import cors from "cors"
 
+// configures the cors to allow only one origin
 const corsOptions = {
   credentials: true,
   origin: "https://invoice-app-adrianoescarabote.vercel.app",
@@ -44,12 +45,13 @@ const main = async () => {
   app.get("/", (req: Request, res: Response) => {
     res.send("Hello world!")
   })
+
   app.use("/auth", authRouter)
   app.use("/invoice", InvoiceRouter)
 
   const port = 5000
 
-  app.listen(port, async () => {
+  app.listen(port, () => {
     console.log(`listening on port http://localhost:${port}`)
   })
 }
