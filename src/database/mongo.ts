@@ -6,8 +6,8 @@ export const MongoClient = {
 
   async connect(): Promise<void> {
     const url = process.env.MONGODB_URL as string
-    const username = process.env.MONGODB_USERNAME as string
-    const password = process.env.MONGODB_PASSWORD as string
+    const username = process.env.MONGODB_USERNAME
+    const password = process.env.MONGODB_PASSWORD
 
     const client = new Mongo(url, { auth: { username, password } })
     const db = client.db("users")
