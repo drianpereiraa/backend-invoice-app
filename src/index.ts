@@ -15,7 +15,7 @@ import cors from "cors"
 
 const corsOptions = {
   credentials: true,
-  origin: "http://localhost:3000",
+  origin: "https://invoice-app-adrianoescarabote.vercel.app/",
 }
 
 // routers
@@ -31,7 +31,10 @@ const main = async () => {
   app.use(cookieParser())
   app.use(cors(corsOptions))
   app.use(function (req: Request, res: Response, next: NextFunction) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000")
+    res.header(
+      "Access-Control-Allow-Origin",
+      "https://invoice-app-adrianoescarabote.vercel.app/",
+    )
     res.header("Access-Control-Allow-Credentials", "true")
     next()
   })
